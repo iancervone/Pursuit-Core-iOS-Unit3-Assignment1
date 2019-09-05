@@ -16,22 +16,39 @@ class ContactsViewController: UIViewController {
     }
   }
   
+  
   @IBOutlet weak var contactsSearchBar: UISearchBar!
-  
-  
   @IBOutlet weak var contactsTableView: UITableView!
   
   
+  //SEARCH BAR CODE vvv
+  func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    self.searchString = searchBar.text
+  }
   
+  var searchString: String? = nil {
+    didSet {
+      self.contactsTableView.reloadData()
+    }
+  }
   
-  
+  var searchResults:[Results] {
+      guard let searchString = searchString else {
+        return contactData
+      }
+        return contactData.filter{$0.name.first.lowercased().contains(searchString.lowercased())}
+      }
+  //SEARCH BAR CODE ^^^
+
   
   override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
         contactsTableView.delegate = self
         contactsTableView.dataSource = self
+        contactsSearchBar.delegate = self
     }
+  
   
   private func loadData() {
     guard let pathToJSONFile = Bundle.main.path(forResource: "userinfo", ofType: "json") else {
@@ -47,16 +64,11 @@ class ContactsViewController: UIViewController {
     } catch {
       fatalError("Couldn't get contacts from JSON: \(error)")
     }
-    //episodes = whatever we decode from the json file
   }
-  
-  
-  
 }
 
 
 extension ContactsViewController: UITableViewDelegate {
-  
 }
 
 
@@ -71,14 +83,22 @@ extension ContactsViewController: UITableViewDataSource {
     cell?.detailTextLabel?.text = "\(contactData[indexPath.row].location.city), \(contactData[indexPath.row].location.state)"
     return cell!
   }
-  
-  
 }
 
 
 extension ContactsViewController : UISearchBarDelegate {
-  func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-    guard let searchBarText = searchBar.text else { return }
-//    let contactRequest = Results(name: searchBarText)
+  func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    self.searchString = searchText
   }
 }
+  
+  
+//  func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+//    let request : NSFetchRequest<Results> = Results.fetchRequest()
+////    guard let searchBarText = searchBar.text else { return }
+////    let contactRequest = Results(name: searchBarText)
+//  }
+//}
+
+
+
