@@ -20,6 +20,7 @@ class PeopleAndAppleStockPricesTests: XCTestCase {
 
   func testGetContactsFromJSON() {
     let data = getContactsData()
+    
   }
   
   private func getContactsData() -> Data {

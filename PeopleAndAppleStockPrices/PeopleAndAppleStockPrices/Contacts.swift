@@ -29,10 +29,10 @@ enum JSONError: Error {
 struct Contact: Codable {
   let results: [Results]
   
-  static func getContacts(from data: Data) throws -> Contact {
+  static func getContacts(from data: Data) throws -> [Results] {
     do {
       let contacts = try JSONDecoder().decode(Contact.self, from: data)
-      return contacts
+      return contacts.results
     } catch {
       throw JSONError.decodingContactsError(error)
     }

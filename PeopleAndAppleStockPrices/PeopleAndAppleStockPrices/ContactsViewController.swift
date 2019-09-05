@@ -10,13 +10,20 @@ import UIKit
 
 class ContactsViewController: UIViewController {
 
-  var contactData = [Contact](){
+  var contactData = [Results](){
     didSet {
       contactsTableView.reloadData()
     }
   }
   
+  @IBOutlet weak var contactsSearchBar: UISearchBar!
+  
+  
   @IBOutlet weak var contactsTableView: UITableView!
+  
+  
+  
+  
   
   
   override func viewDidLoad() {
@@ -36,7 +43,7 @@ class ContactsViewController: UIViewController {
       let data = try Data(contentsOf: url)
       //decode data to create episodes
       let contactsFromJSON = try Contact.getContacts(from: data)
-      contactData = [contactsFromJSON]
+      contactData = contactsFromJSON
     } catch {
       fatalError("Couldn't get contacts from JSON: \(error)")
     }
@@ -60,10 +67,18 @@ extension ContactsViewController: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "contactCell")
-    cell?.textLabel?.text = "\(contactData[indexPath.row].results.name.first) \(contactData[indexPath.row].results.name.last)"
-//    cell?.detailTextLabel?.text = "\(contactData[indexPath.row].location.city), \(contactData[indexPath.row].location.state)"
+    cell?.textLabel?.text = "\(contactData[indexPath.row].name.first) \(contactData[indexPath.row].name.last)"
+    cell?.detailTextLabel?.text = "\(contactData[indexPath.row].location.city), \(contactData[indexPath.row].location.state)"
     return cell!
   }
   
   
+}
+
+
+extension ContactsViewController : UISearchBarDelegate {
+  func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    guard let searchBarText = searchBar.text else { return }
+//    let contactRequest = Results(name: searchBarText)
+  }
 }
