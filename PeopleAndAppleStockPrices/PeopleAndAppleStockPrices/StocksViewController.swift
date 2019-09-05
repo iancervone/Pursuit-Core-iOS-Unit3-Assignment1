@@ -9,7 +9,9 @@
 import UIKit
 
 class StocksViewController: UIViewController {
-
+  
+  @IBOutlet weak var stocksTableView: UITableView!
+  
     override func viewDidLoad() {
         super.viewDidLoad()
 

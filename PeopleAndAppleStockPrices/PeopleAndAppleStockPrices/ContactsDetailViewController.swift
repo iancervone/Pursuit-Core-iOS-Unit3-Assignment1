@@ -24,7 +24,25 @@ class ContactsDetailViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    
+  
+  
+  func setImage() {
+    contactImageView.image = UIImage(named: contactDetails.picture.large)
+  }
+//
+//  
+//  func setName() {
+//    
+//  }
+//  
+//  func setDOB() {
+//    
+//  }
+//  
+//  
+//  func setAddress(){
+//    
+//  }
 
     /*
     // MARK: - Navigation

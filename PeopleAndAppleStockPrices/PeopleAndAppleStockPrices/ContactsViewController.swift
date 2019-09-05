@@ -22,15 +22,17 @@ class ContactsViewController: UIViewController {
   
   
   //SEARCH BAR CODE vvv
-  func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-    self.searchString = searchBar.text
-  }
-  
   var searchString: String? = nil {
     didSet {
       self.contactsTableView.reloadData()
     }
   }
+  
+  
+  func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    self.searchString = searchBar.text
+  }
+  
   
   var searchResults:[Results] {
       guard let searchString = searchString else {
@@ -75,7 +77,7 @@ class ContactsViewController: UIViewController {
       guard let selectedIndexPath = contactsTableView.indexPathForSelectedRow else {
         fatalError("No row was selected")
       }
-      destinationVC.contactDetails = contactData[selectedIndexPath.row]
+//      destinationVC.contactDetails = contactData[selectedIndexPath.row]
     default:
       fatalError("Unexpected segue identifier")
     }
