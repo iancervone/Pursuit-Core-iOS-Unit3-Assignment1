@@ -58,13 +58,29 @@ class ContactsViewController: UIViewController {
     let url = URL(fileURLWithPath: pathToJSONFile)
     do {
       let data = try Data(contentsOf: url)
-      //decode data to create episodes
       let contactsFromJSON = try Contact.getContacts(from: data)
       contactData = contactsFromJSON
     } catch {
       fatalError("Couldn't get contacts from JSON: \(error)")
     }
   }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    guard let segueIdentifier = segue.identifier else { fatalError("No identifier on segue") }
+    switch segueIdentifier {
+    case "contactsDetailSegue":
+      guard let destinationVC = segue.destination as? ContactsDetailViewController else {
+        fatalError("Unexpected segue VC")
+      }
+      guard let selectedIndexPath = contactsTableView.indexPathForSelectedRow else {
+        fatalError("No row was selected")
+      }
+      destinationVC.contactDetails = contactData[selectedIndexPath.row]
+    default:
+      fatalError("Unexpected segue identifier")
+    }
+  }
+
 }
 
 
@@ -99,6 +115,5 @@ extension ContactsViewController : UISearchBarDelegate {
 ////    let contactRequest = Results(name: searchBarText)
 //  }
 //}
-
 
 

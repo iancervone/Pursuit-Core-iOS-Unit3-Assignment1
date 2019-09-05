@@ -16,6 +16,8 @@ class ContactsDetailViewController: UIViewController {
   @IBOutlet weak var contactStreetLabel: UILabel!
   @IBOutlet weak var contactCityStateLabel: UILabel!
   
+  var contactDetails: Results!
+  
   
     override func viewDidLoad() {
         super.viewDidLoad()
