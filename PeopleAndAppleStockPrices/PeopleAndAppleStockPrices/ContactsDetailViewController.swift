@@ -22,7 +22,7 @@ class ContactsDetailViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     setImage()
-    setName()
+    setLabels()
     }
 
   func setImage() {
@@ -40,13 +40,17 @@ class ContactsDetailViewController: UIViewController {
   }
   
   
-    func setName() {
-       contactNameLabel.text = "\(contactDetails.name.first) \(contactDetails.name.last)"
+    func setLabels() {
+        contactNameLabel.text = "\(contactDetails.name.first) \(contactDetails.name.last)"
+        contactDOBlabel.text = contactDetails.dob
+        contactStreetLabel.text = contactDetails.location.street
+        contactCityStateLabel.text = "\(contactDetails.location.city) \(contactDetails.location.state)"
+      
     }
   
-  //  func setDOB() {
-  //
-  //  }
+//    func setDOB() {
+//      contactDOBlabel
+//    }
   
   
 }
