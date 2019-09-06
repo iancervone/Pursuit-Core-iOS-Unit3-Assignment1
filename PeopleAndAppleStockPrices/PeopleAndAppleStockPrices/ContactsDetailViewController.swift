@@ -31,6 +31,10 @@ class ContactsDetailViewController: UIViewController {
         let contactData = try Data.init(contentsOf: url)
         if let photo = UIImage.init(data: contactData){
           contactImageView.image = photo
+          contactImageView.layer.borderWidth = 1
+          contactImageView.layer.masksToBounds = false
+          contactImageView.layer.cornerRadius = contactImageView.frame.height/2
+          contactImageView.clipsToBounds = true
         }
       }catch{
         contactImageView.image = UIImage.init(named: "profileImage")
@@ -41,11 +45,13 @@ class ContactsDetailViewController: UIViewController {
   
   
     func setLabels() {
-        contactNameLabel.text = "\(contactDetails.name.first) \(contactDetails.name.last)"
-        contactDOBlabel.text = contactDetails.dob
-        contactStreetLabel.text = contactDetails.location.street
-        contactCityStateLabel.text = "\(contactDetails.location.city), \(contactDetails.location.state)"
-      
+        contactNameLabel.text = "\(contactDetails.name.first) \(contactDetails.name.last)".capitalized
+        contactStreetLabel.text = contactDetails.location.street.capitalized
+        contactCityStateLabel.text = "\(contactDetails.location.city), \(contactDetails.location.state)".capitalized
+      let dobComponents = contactDetails.dob.components(separatedBy: " ")
+      let bDay = dobComponents[0]
+      contactDOBlabel.text = bDay
+
     }
   
 //    func setDOB() {
