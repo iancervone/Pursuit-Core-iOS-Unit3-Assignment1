@@ -85,6 +85,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="0at-cV-Ikk" kind="show" identifier="contactsDetailSegue" id="Kst-0a-Jbz"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -109,7 +112,6 @@
                     <connections>
                         <outlet property="contactsSearchBar" destination="E8N-dQ-8zR" id="ygY-7i-at3"/>
                         <outlet property="contactsTableView" destination="sHu-vG-cXr" id="ZsN-0B-kKc"/>
-                        <segue destination="0at-cV-Ikk" kind="show" identifier="contactsDetailSegue" id="q7H-Hd-ddu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7yi-tb-m1k" userLabel="First Responder" sceneMemberID="firstResponder"/>

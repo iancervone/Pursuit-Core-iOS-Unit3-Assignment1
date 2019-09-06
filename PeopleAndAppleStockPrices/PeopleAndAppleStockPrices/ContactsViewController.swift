@@ -77,7 +77,7 @@ class ContactsViewController: UIViewController {
       guard let selectedIndexPath = contactsTableView.indexPathForSelectedRow else {
         fatalError("No row was selected")
       }
-//      destinationVC.contactDetails = contactData[selectedIndexPath.row]
+      destinationVC.contactDetails = contactData[selectedIndexPath.row]
     default:
       fatalError("Unexpected segue identifier")
     }
