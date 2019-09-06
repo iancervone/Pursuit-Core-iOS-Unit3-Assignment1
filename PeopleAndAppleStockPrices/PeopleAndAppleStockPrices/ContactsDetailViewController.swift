@@ -44,7 +44,7 @@ class ContactsDetailViewController: UIViewController {
         contactNameLabel.text = "\(contactDetails.name.first) \(contactDetails.name.last)"
         contactDOBlabel.text = contactDetails.dob
         contactStreetLabel.text = contactDetails.location.street
-        contactCityStateLabel.text = "\(contactDetails.location.city) \(contactDetails.location.state)"
+        contactCityStateLabel.text = "\(contactDetails.location.city), \(contactDetails.location.state)"
       
     }
   
