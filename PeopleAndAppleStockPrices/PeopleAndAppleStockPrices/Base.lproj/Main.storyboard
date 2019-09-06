@@ -155,7 +155,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ADDRESS:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zLu-1W-kQ3">
-                                <rect key="frame" x="20" y="625" width="374" height="48"/>
+                                <rect key="frame" x="20" y="626" width="374" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="16"/>
                                 <nil key="textColor"/>
@@ -206,11 +206,11 @@
             </objects>
             <point key="canvasLocation" x="-843" y="-147"/>
         </scene>
-        <!--Item 1-->
+        <!--People-->
         <scene sceneID="SHa-lO-Qzx">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Dey-JZ-lOP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 1" id="gLy-m8-uAg"/>
+                    <tabBarItem key="tabBarItem" title="People" id="gLy-m8-uAg"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="V0g-Fr-x85">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -225,11 +225,11 @@
             </objects>
             <point key="canvasLocation" x="75.362318840579718" y="-471.42857142857139"/>
         </scene>
-        <!--Item 2-->
+        <!--Stock Price-->
         <scene sceneID="mxK-Lh-gHF">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XDK-Xn-u9b" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 2" id="erU-Zw-mbY"/>
+                    <tabBarItem key="tabBarItem" title="Stock Price" id="erU-Zw-mbY"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Gi7-Oy-q9r">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

@@ -97,8 +97,8 @@ extension ContactsViewController: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "contactCell")
-    cell?.textLabel?.text = "\(contactData[indexPath.row].name.first) \(contactData[indexPath.row].name.last)"
-    cell?.detailTextLabel?.text = "\(contactData[indexPath.row].location.city), \(contactData[indexPath.row].location.state)"
+    cell?.textLabel?.text = "\(contactData[indexPath.row].name.first) \(contactData[indexPath.row].name.last)".capitalized
+    cell?.detailTextLabel?.text = "\(contactData[indexPath.row].location.city), \(contactData[indexPath.row].location.state)".capitalized
     return cell!
   }
 }
